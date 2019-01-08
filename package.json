@@ -1,0 +1,25 @@
+{
+  "name": "qs1-unio-paul5902",
+  "version": "1.0.0",
+  "description": "## Before the journey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier":
+      "prettier --single-quote --trailing-comma es5 --write \"./src/**/*.js\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul5902/qs1-unio-paul5902.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul5902/qs1-unio-paul5902/issues"
+  },
+  "homepage": "https://github.com/paul5902/qs1-unio-paul5902#readme",
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+  
+}
