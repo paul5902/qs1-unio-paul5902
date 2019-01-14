@@ -1,30 +1,27 @@
-const john = 'John';  
-     const arya = 'Arya';  
-     const sensa = 'Sensa';  
-     const say = hero => sentence => console.log(`${hero} says : ${sentence}`);  
-     const johnSay = say(john); // may be used this way setTimeout(johnSay, 1000, 'hello');  
-     const aryaSay = say(arya);  
-     const sensaSay = say(sensa);
+const john = 'John';
+const arya = 'Arya';
+const sensa = 'Sensa';
+const say = hero => sentence => Promise.resolve(`${hero} says : ${sentence}`);
+const johnSay = say(john);
+const aryaSay = say(arya);
+const sensaSay = say(sensa);
 
 
-const EventEmitter = require('events');  
-const myEmitter = new EventEmitter();    
-
-myEmitter.on('north', () => {  
-    const sensaInterval = setInterval(function() {
-        sensaSay("For the north");
-    } , 1000);
-    johnSay('Winter is coming');
-  });  
-myEmitter.emit('north');
+let first = true;
 
 
-setTimeout(() => clearInterval(sensaInterval), 10000);
-
-
-setTimeout(() => {
-        johnSay("hello Ladies Stark")
-        setImmediate(() => aryaSay("thank you for needle"));
-    }
-    , 2000
-);
+const sensaInterval = setInterval(() => {
+    sensaSay("For the North").then(value1 => {
+        console.log(value1);
+        aryaSay("The king in the North").then(value3 => {
+            console.log(value3);
+        });
+        if (first) {
+            first = false;
+            johnSay("Winter is coming").then(value2 => {
+                console.log(value2);
+            });
+        }
+    });
+}, 1000);
+setTimeout(() => clearInterval(sensaInterval), 11000);
